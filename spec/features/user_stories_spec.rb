@@ -35,12 +35,17 @@ feature 'Attack player 2' do
     click_link 'Attack'
     expect(page).to have_content('Dan attacked Villain')
   end
-end
 
 # As Player 1,
 # So I can start to win a game of Battle,
 # I want my attack to reduce Player 2's HP by 10
-#
+
+  scenario 'Attack reduces hitpoints by 10' do
+    sign_in_and_play
+    click_link 'Attack'
+    expect(page).to have_content('Villain(50)')
+  end
+end
 # As two Players,
 # So we can continue our game of Battle,
 # We want to switch turns
